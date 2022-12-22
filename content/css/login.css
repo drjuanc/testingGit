@@ -1,0 +1,158 @@
+
+/*Defining some variables*/
+:root {
+    /*--primaryColor: #1b72b6*/
+    --primaryColor: #0b603d;
+    --txtPrimaryMatch: #fff;
+}
+
+/*===Login page multiple tweaks ====*/
+/*Body*/
+
+body.w3-margin-left.customLogin {
+    margin: 0 !important;
+}
+/*logo at the centre*/
+.customLogin .w3-half.itslogimg {
+    width: 100%;
+    text-align: center;
+    margin: 2em 0 3em 0;
+}
+
+.customLogin .w3-image {
+    height: unset !important;
+    padding-bottom: 20px;
+}
+
+
+/*Padding to the  radiobuttons*/
+.customLogin [type=checkbox], .customLogin [type=radio] {
+    margin-right: 5px;
+}
+
+.customLogin label {
+    padding-right: 20px;
+    font-size: 1.1rem;
+}
+
+/*marging to the buttons at the end*/
+.customLogin [type=submit], .customLogin [type=button] {
+    margin-bottom: 10px;
+}
+/*Fixing students and login card*/
+.customLogin .login {
+    display: flex !important;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 3em;
+}
+
+.customLogin .w3-card-4 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.customLogin #login_left, .customLogin #login_right {
+    display: flex !important;
+    flex: 1;
+}
+
+.customLogin #login_left {
+    width: 40%;
+}
+
+
+.customLogin #login_right {
+    width: 59.9%;
+}
+
+.customLogin #login_right > div {
+    max-width: 580px !important;
+}
+
+.customLogin #login_right > div, .customLogin #login_left > div {
+    max-width: 580px !important;
+    border-radius: 10px 10px 0 0;
+}
+
+.customLogin header.w3-container {
+    border-radius: 10px 10px 0 0;
+}
+
+/*Pimping the blue login header*/
+.customLogin header.w3-container.w3-blue {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*Bar on top*/
+.customLogin #fra_header {
+    border-bottom: 1px solid #ccc;
+    border-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px 10px 20px;
+    height: 3em;
+}
+/*Bar on the bottom*/
+.customLogin #login_bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.customLogin  #login_bottom > div > div {
+    padding: 4px 0 !important;
+}
+
+
+.customLogin .col-sm-12 table {
+    height: 5em;
+}
+/* == Compliance with WCAG 2.0/ISO/IEC 40500:2012 ==*/
+
+/*Headers with enough contrast*/
+.customLogin h5 {
+    font-size: 1.6em !important;
+    font-weight: 600 !important;
+}
+
+
+/* == Redefining login colors*/
+/*Redefining color for better accessibility*/
+/*Bar heading on top of the boxes*/
+body.customLoginColors .w3-blue {
+    background-color: var(--primaryColor) !important;
+}
+/*Footer coolors*/
+.customLoginColors td.customfooter {
+    background-color: #eaeaea82 !important;
+    color: #525252;
+}
+.customLoginColors td.customfooter > a:hover {
+    color: #3a3737;
+}
+/*Head bar*/
+.customLoginColors div.fra_inst, .customLoginColors div.fra_date {
+    color: #3a3737;
+}
+/*Hover the login buttons*/
+.customLoginColors .w3-button:hover {
+    color: var(--txtPrimaryMatch) !important;
+    background-color: var(--primaryColor) !important;
+}
+
+
+/* ====For clean login====*/
+.customLogin.cleanLogin #login_left {
+    display: none !important;
+}
+
+.customLogin.cleanLogin .w3-card-4 {
+    margin: auto !important;
+}
