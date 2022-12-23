@@ -1,36 +1,38 @@
 (() => {
 
-                
-    let currentURl = window.location.href; //Get the page URL
-    let ArrConfig; //Set the var config
-   
 
-    //I read all settings and stored in a abject containing an array of propertyes
+
+    //end test
+    let currentURl = window.location.href; //Get the page URL
+    let arrConfig; //Set the var config
+
+
+   //I read all settings and stored in a abject containing an array of propertyes
     chrome.storage.sync.get(function (result) {
 
         arrConfig = result.config;
         /*==Now I read every individual configation and act accordingly==*/
         //Custom theme
 
-        if (arrConfig[0][0] = 'customTheme' && !currentURl.includes('mi_login')) { 
+        if (arrConfig[0][0] = 'customTheme' && !currentURl.includes('mi_login')) {
             if (arrConfig[0][1]) {
-                //Activate the custo Theme adding a class to the body                
+                //Activate the custo Theme adding a class to the body
                 var docBody = document.body;
-                docBody.classList.add("customTheme");         
+                docBody.classList.add("customTheme");
             } else {
                 //no need to deactivate the custom theme
                 //
-            }          
-            
+            }
+
         }
 
         //Custom login, if i'm in the login page
         if (currentURl.includes('mi_login')) {
             let docBody = document.body;
-            //Activate the custom login adding a class to the body 
+            //Activate the custom login adding a class to the body
             if (arrConfig[3][0] = 'customLogin' && arrConfig[3][1]) docBody.classList.add("customLogin");
 
-            //Activate the custom login colors adding a class to the body 
+            //Activate the custom login colors adding a class to the body
             if (arrConfig[4][0] = 'customLogin' && arrConfig[4][1]) docBody.classList.add("customLoginColors");
 
             //Fix WSU logo. If the option is active I call the function
@@ -45,27 +47,31 @@
         }
 
         if (currentURl.includes("mi_main_menu")) { //Make sure the user is in the other page
+            //Fix wsu logo, still need the condition in case te option is active
             fixWSULogo(270);
+
+            //var iframeF3 = document.
+            //onload="myonloadscript()
         }
 
-         
+
     });
-    
- 
+
+
     //Fixing the low-res WSU logo'
     function fixWSULogo(logoWidth) {
 
         var wsuLogo = document.getElementsByTagName("img")[0];
         wsuLogo.width = logoWidth;
 
-        if (currentURl.includes("mi_login")) { //Make sure the user is in login page  
+        if (currentURl.includes("mi_login")) { //Make sure the user is in login page
             wsuLogo.src = chrome.runtime.getURL('assets/pics/wsulogo.jpg');
         }
 
 
         if (currentURl.includes("mi_main_menu")) { //Make sure the user is in the other page
             wsuLogo.src = chrome.runtime.getURL('assets/pics/wsuinv.png');
-            
+
         }
 
     }
@@ -75,35 +81,62 @@
         //When the document is loaded and  I'm not in the login
 
         if (event.target.readyState === "complete" && currentURl.includes("mi_main_menu")) {
+
             /*=== Add the google forms to the file ===*/
             var googleFont = document.createElement('link');
             googleFont.href = chrome.runtime.getURL('assets/fonts/RobotoCondensed-Regular.ttf');
             googleFont.rel = "stylesheet";
 
-            document.head.appendChild(googleFont);
-
-
             /*=== link the CSS to the iframe===*/
             //Create the F1 and F3 css object
-            var framef1CSS = document.createElement('link'); 
-            var framef3CSS = document.createElement('link'); 
-           // console.log(framef3CSS);
+            var framef1CSS = document.createElement('link');
+            var framef3CSS = document.createElement('link');
+            var framef3JS = document.createElement('script');
+
             framef1CSS.href = chrome.runtime.getURL('content/css/framef1.css');
             framef3CSS.href = chrome.runtime.getURL('content/css/framef3.css');
+            framef3JS.src = chrome.runtime.getURL('content/js/frameF3Loader.js');
+            bootStrapCSS = chrome.runtime.getURL('lib/css/bootstrap.css');
+
             framef1CSS.rel = "stylesheet";
             framef3CSS.rel = "stylesheet";
+
             framef1CSS.type = "text/css";
             framef3CSS.type = "text/css";
+            framef3JS.type = "text/javascript";
 
             //Insert the CSS's into the head of the Iframe document
             frames['F1'].document.head.appendChild(framef1CSS);
             frames['F3'].document.head.appendChild(framef3CSS);
-         
+
+            /*Very hacky: I add a JS file that the load CSS into the F3 iFrame, 
+            then call a function in this file while F3 iFrame onLoad.
+            I also force boostrap in the same way*/
+            document.head.appendChild(framef3JS);
+            var files = "'"+framef3CSS.href + "', '" + bootStrapCSS+"'";
+            document.getElementById("F3").setAttribute("onLoad", "frameF3Reloaded("+files+");");
+
         }
     });
 
 })();
 
+
+function frameF3Reloaded(){
+
+    var framef3CSS = document.createElement('link');
+
+    framef3CSS.href = chrome.runtime.getURL('content/css/framef3.css');
+    //framef3CSS.href = '/content/css/framef3.css';
+
+    framef3CSS.rel = "stylesheet";
+
+    framef3CSS.type = "text/css";
+
+    //Insert the CSS's into the head of the Iframe document
+    frames['F3'].document.head.appendChild(framef3CSS);
+
+    }
 
 
 

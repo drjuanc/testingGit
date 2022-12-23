@@ -5,6 +5,8 @@
     --txtPrimaryMatch: #c2e3d6;
     --primaryActive: #2c7759;
     --primaryHigh: #094f34;
+    --complement: #eaeaea;
+    --highlighted: #18221e;
 }
 
 @font-face {

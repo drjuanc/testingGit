@@ -38,12 +38,14 @@
         "content/css/variables.css",
         "content/css/framef1.css",
         "content/css/framef3.css",
+        "content/js/frameF3Loader.js",
         "/assets/fonts/RobotoCondensed-Regular.ttf",
         "/assets/fonts/NotoSans-Regular.ttf",
         "/assets/fonts/Cabin-Regular.ttf",
         "/assets/pics/wsulogo.jpg",
         "/assets/pics/wsulogoinv.jpg",
-        "/assets/pics/wsuinv.png"
+        "/assets/pics/wsuinv.png",
+        "lib/css/bootstrap.css"
       ],
       "matches": [ "https://*.ieweb.wsu.ac.za/*" ]
     }
@@ -51,15 +53,17 @@
 
   "content_scripts": [
     {
+      "all_frames" : true,
       "matches": [
-        "https://*.ieweb.wsu.ac.za/*"
+        "https://ieweb.wsu.ac.za/*"
       ],
       "css": [
         "content/css/content.css",
-        "content/css/login.css"
+        "content/css/login.css"        
       ],
       "js": [
-        "content/content.js"
+        "content/content.js",
+        "content/js/frameF3Loader.js"
 
       ]
     }

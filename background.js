@@ -58,7 +58,6 @@ function insertScript(code) {
 };
 
 
-
 /*Listening  messages from the scripts*/
 chrome.runtime.onMessage.addListener(async function (request, sender, sendResponse) {
 
@@ -150,6 +149,7 @@ function unFixWSULogo(logoHeight) {
 
 }
 
+
 //add the class 'customLogin' to the body to ebale the new theme
 function addCustomLogin() {
     document.body.classList.add("customLogin");
@@ -188,3 +188,4 @@ function cleanLogin() {
 function noCleanLogin() {
     document.body.classList.remove('cleanLogin');
 }
+

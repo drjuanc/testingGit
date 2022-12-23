@@ -16,3 +16,73 @@ td.mbbot{
     font-family: 'NotoSans';
     font-size: .9rem;
 }
+body>h1{
+    margin: 10px 20px 20px 10px;
+    background-color: var(--primaryColor);
+    padding: 10px;
+    color: var(--txtPrimaryMatch);
+}
+
+table.w3-table-all td>h1{
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: var(--primaryComp);
+    padding: 10px;
+    border: 2px solid var(--primaryActive);
+}
+
+table.mi_userdet td{
+    padding: 10px;
+    font-size: .8rem;
+    line-height: 1.2rem;
+    border: 2px solid var(--primaryActive);
+}
+table.mi_userdet{
+    margin-left: 10px;
+    background-color: var(--complement);
+    border: none;
+}
+
+td.notetext{
+    padding: 20px;
+    background-color: var(--primaryComp);
+}
+table:not(.mi_userdet){
+    margin: 20px;
+    width: 93%;
+}
+table.datadisp td{
+    padding: 5px;
+}
+
+form[name="qrycrit"]>table.datadisp{
+    width: 300px;
+    margin: auto;
+}
+
+form[name="qrycrit"]{
+    text-align: center;
+}
+.form-select:focus{
+    border-color: var(--primaryComp) !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0.5rem 0.25rem rgb(11 96 60 / 40%) !important;
+}
+
+/*Overriding Boostrap styles*/
+.btn-primary {
+    background-color: var(--primaryActive) !important;
+    border-color: var(--primaryActive) !important;
+    filter: drop-shadow(4px 4px 4px var(--highlighted));
+}
+.btn-primary:hover {
+    background-color: var(--primaryComp) !important;
+    color: var(--primaryHigh) !important;
+    font-weight: 600 !important;
+    border: 1px solid var(--primaryColor) !important;
+}
+.btn-right{
+    float:right;
+    margin-right: 100px;
+}
