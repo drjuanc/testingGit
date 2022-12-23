@@ -20,7 +20,10 @@
     height: 3em;
     margin-bottom: 5px;
 }
-
+/*Push menu to the left hidding some invisible images */
+.customTheme .col-sm-12 > img{
+    display: none;
+}
 
 
 /*Bar on top*/
@@ -56,6 +59,7 @@
 .customTheme  #mySidebar {
     /*width: 370px !important;
     margin-left: -20px;*/
+    height: 100vw;
 }
 
 .customTheme .w3-container, .w3-panel {

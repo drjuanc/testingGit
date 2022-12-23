@@ -1,0 +1,22 @@
+/*Defining colors and spaces in variables*/
+:root {
+    --primaryColor: #0b603c;
+    --primaryComp: #dffff2;
+    --txtPrimaryMatch: #c2e3d6;
+    --primaryActive: #2c7759;
+    --primaryHigh: #094f34;
+}
+
+@font-face {
+    font-family: robotoCondense;
+    src: url('/assets/fonts/RobotoCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: NotoSans;
+    src: url('/assets/fonts/NotoSans-Regular.ttf');
+}
+@font-face {
+    font-family: Cabin;
+    src: url('/assets/fonts/Cabin-Regular.ttf');
+}

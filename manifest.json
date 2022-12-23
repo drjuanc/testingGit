@@ -35,8 +35,12 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "content/css/iframed.css",
+        "content/css/variables.css",
+        "content/css/framef1.css",
+        "content/css/framef3.css",
         "/assets/fonts/RobotoCondensed-Regular.ttf",
+        "/assets/fonts/NotoSans-Regular.ttf",
+        "/assets/fonts/Cabin-Regular.ttf",
         "/assets/pics/wsulogo.jpg",
         "/assets/pics/wsulogoinv.jpg",
         "/assets/pics/wsuinv.png"

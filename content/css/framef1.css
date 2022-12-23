@@ -1,17 +1,4 @@
-/*Defining colors and spaces in variables*/
-:root {
-    /*--primaryColor: #1b72b6*/
-    --primaryColor: #0b603c;
-    --primaryComp: #dffff2;
-    --txtPrimaryMatch: #c2e3d6;
-    --primaryActive: #2c7759;
-    --primaryHigh: #094f34;
-}
-
-@font-face {
-    font-family: robotoCondense;
-    src: url('/assets/fonts/RobotoCondensed-Regular.ttf');
-}
+@import "variables.css"; /* Import the variables */
 
 /*===Custom colors===*/
 body {
@@ -26,7 +13,10 @@ a, a:link, a:visited {
     filter: invert(1) opacity(0.7);
 }
 
-.menuLvlM1:hover, .menuLvlM2:hover, .menuLvlM3:hover, .menuLvlM4:hover, .menuLvlM5:hover, .menuLvlU1:hover, .menuLvlU2:hover, .menuLvlU3:hover, .menuLvlU4:hover, .menuLvlU5:hover {
+.menuLvlM1:hover, .menuLvlM2:hover, .menuLvlM3:hover, 
+.menuLvlM4:hover, .menuLvlM5:hover, .menuLvlU1:hover, 
+.menuLvlU2:hover, .menuLvlU3:hover, .menuLvlU4:hover, 
+.menuLvlU5:hover {
     background-color: var(--primaryActive) !important;
 }
 
@@ -40,10 +30,11 @@ body > .w3-tag:last-of-type .w3-tag {
     font-weight: 600;
 }
 
-    body > .w3-tag:last-of-type .w3-tag:hover {
-        background-color: var(--primaryHigh) !important;
-        color: var(--txtPrimaryMatch) !important;
-    }
+body > .w3-tag:last-of-type div.w3-tag:hover {
+    background-color: var(--primaryHigh) !important;
+    color: var(--txtPrimaryMatch) !important;
+}
+
 /*=== text fixes ===*/
 
 a:link, a:visited {
@@ -54,25 +45,36 @@ a:link, a:visited {
     width: 100% !important;
 }
 
-/* === Margin and paddings ==== */
+/* === Element positioning ==== */
 
 .menuLvlM1, .menuLvlU2, .menuLvlM2, menuId0 {
     padding: 5px !important;
+}
+.menuLvlU2{
+    margin-left: 14px;
+}
+.menuLvlU3{
+    margin-left: 18px;
 }
 
 .col-sm-12 {
     margin: 20px 0 10px 0;
 }
 
-    .col-sm-12 > * {
-        margin-top: 12px !important;
-    }
+.col-sm-12 > * {
+    margin-top: 12px !important;
+}
 
-.w3-blue {
+.col-sm-12 > img{
+    display: none;
+}
+
+.w3-blue{
     display: block;
     width: 150px;
     padding: 5px !important;
     margin: auto;
+    padding: 3px !important;
 }
 
 .menuLvlM1:hover, .menuLvlM2:hover, .menuLvlM3:hover, .menuLvlM4:hover, .menuLvlM5:hover, .menuLvlU1:hover, .menuLvlU2:hover, .menuLvlU3:hover, .menuLvlU4:hover, .menuLvlU5:hover {
@@ -87,11 +89,8 @@ body > .w3-tag:last-of-type {
 
 body > .w3-tag:first-of-type {
     position: fixed;
-    /**bottom: 100px;
+    bottom: 100px;
     width: 90%;
-    left: 25px;*/
+    left: 25px;
 
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    bottom: 0;
 }

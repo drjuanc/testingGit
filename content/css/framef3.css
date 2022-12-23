@@ -1,0 +1,18 @@
+@import "variables.css"; /* Import the variables */
+
+td.ie_process_hdr{
+    background-color: var(--primaryColor);
+    color: var(--txtPrimaryMatch);
+}
+
+
+td.mbtop{
+    font-family: 'Cabin';
+    font-size: 1rem;
+}
+
+td.mbbot{
+    border: 0 !important;
+    font-family: 'NotoSans';
+    font-size: .9rem;
+}

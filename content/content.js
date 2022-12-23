@@ -19,7 +19,7 @@
                 docBody.classList.add("customTheme");         
             } else {
                 //no need to deactivate the custom theme
-                
+                //
             }          
             
         }
@@ -74,7 +74,7 @@
 
         //When the document is loaded and  I'm not in the login
 
-        if (event.target.readyState === "complete" && !currentURl.includes("mi_login")) {
+        if (event.target.readyState === "complete" && currentURl.includes("mi_main_menu")) {
             /*=== Add the google forms to the file ===*/
             var googleFont = document.createElement('link');
             googleFont.href = chrome.runtime.getURL('assets/fonts/RobotoCondensed-Regular.ttf');
@@ -84,16 +84,20 @@
 
 
             /*=== link the CSS to the iframe===*/
-            //Create the css object
-            var iframeCSS = document.createElement('link'); 
-            iframeCSS.href = chrome.runtime.getURL('content/css/iframed.css');
-            iframeCSS.rel = "stylesheet";
-            iframeCSS.type = "text/css";
+            //Create the F1 and F3 css object
+            var framef1CSS = document.createElement('link'); 
+            var framef3CSS = document.createElement('link'); 
+           // console.log(framef3CSS);
+            framef1CSS.href = chrome.runtime.getURL('content/css/framef1.css');
+            framef3CSS.href = chrome.runtime.getURL('content/css/framef3.css');
+            framef1CSS.rel = "stylesheet";
+            framef3CSS.rel = "stylesheet";
+            framef1CSS.type = "text/css";
+            framef3CSS.type = "text/css";
 
-            //Insert the CSS into the head of the Iframe document
-            frames['F1'].document.head.appendChild(iframeCSS);
-
-
+            //Insert the CSS's into the head of the Iframe document
+            frames['F1'].document.head.appendChild(framef1CSS);
+            frames['F3'].document.head.appendChild(framef3CSS);
          
         }
     });
