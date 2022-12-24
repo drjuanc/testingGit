@@ -93,10 +93,10 @@
             var framef3CSS = document.createElement('link');
             var framef3JS = document.createElement('script');
 
+            //Insert the css and JS needed
             framef1CSS.href = chrome.runtime.getURL('content/css/framef1.css');
             framef3CSS.href = chrome.runtime.getURL('content/css/framef3.css');
             framef3JS.src = chrome.runtime.getURL('content/js/frameF3Loader.js');
-            bootStrapCSS = chrome.runtime.getURL('lib/css/bootstrap.css');
 
             framef1CSS.rel = "stylesheet";
             framef3CSS.rel = "stylesheet";
@@ -109,12 +109,27 @@
             frames['F1'].document.head.appendChild(framef1CSS);
             frames['F3'].document.head.appendChild(framef3CSS);
 
-            /*Very hacky: I add a JS file that the load CSS into the F3 iFrame, 
-            then call a function in this file while F3 iFrame onLoad.
-            I also force boostrap in the same way*/
             document.head.appendChild(framef3JS);
-            var files = "'"+framef3CSS.href + "', '" + bootStrapCSS+"'";
-            document.getElementById("F3").setAttribute("onLoad", "frameF3Reloaded("+files+");");
+           // var files = "'"+framef3CSS.href + "', '" + bootStrapCSS+"'";
+
+            /*I'm not happy with this, too hacky: I add made an array with all the files I need to insert in the iFrame3
+            Then store the array in a session var, that made a long sting separated by comas*/
+
+            //Here I create an array of files I need to attach to the frame #3
+            var jQueryJS = chrome.runtime.getURL('lib/js/jquery.min.js');
+            //var jQuery3JS = chrome.runtime.getURL('lib/js/jquery-3.6.3.js');
+            var bstCSS = chrome.runtime.getURL('lib/css/bootstrap.css');
+            var bstTableCSS = chrome.runtime.getURL('lib/css/bootstrap-table.min.css');
+            var bstTableJS = chrome.runtime.getURL('lib/js/bootstrap-table.min.js');
+            var bstFilterJS = chrome.runtime.getURL('lib/js/bootstrap-table-filter-control.min.js');
+
+            var attfiles = [framef3CSS.href, bstCSS, bstTableCSS, bstTableJS, bstFilterJS, jQueryJS];
+            //console.log(jQueryJS);
+            sessionStorage.setItem("filesToAttach", attfiles); //Store them in a session var
+            
+
+           document.getElementById("F3").setAttribute("onLoad", "frameF3Reloaded();");
+            //document.getElementById("F3").setAttribute("onLoad", "frameF3Reloaded("+files+");");
 
         }
     });

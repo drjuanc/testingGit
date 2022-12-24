@@ -21,6 +21,7 @@
   ],
   "host_permissions": [
     "https://*.ieweb.wsu.ac.za/*"
+
   ],
   "background": {
     "service_worker": "background.js"
@@ -45,7 +46,14 @@
         "/assets/pics/wsulogo.jpg",
         "/assets/pics/wsulogoinv.jpg",
         "/assets/pics/wsuinv.png",
-        "lib/css/bootstrap.css"
+        "lib/css/bootstrap.css",
+        "lib/css/bootstrap-table.min.css",
+        "lib/js/jquery.min.js",
+        "lib/js/jquery-3.6.3.js",
+        "lib/js/jbootstrap.bundle.min.js",
+        "lib/js/bootstrap-table.min.js",
+        "lib/js/bootstrap-table-filter-control.min.js"
+        
       ],
       "matches": [ "https://*.ieweb.wsu.ac.za/*" ]
     }

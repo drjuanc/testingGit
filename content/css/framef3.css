@@ -9,6 +9,7 @@ td.ie_process_hdr{
 td.mbtop{
     font-family: 'Cabin';
     font-size: 1rem;
+    padding-top: 20px;
 }
 
 td.mbbot{
@@ -23,6 +24,8 @@ body>h1{
     color: var(--txtPrimaryMatch);
 }
 
+/*Fixing all this tables*/
+/*WHO IN THE XXI CENTURY STILL USE TABLES FOR LAYOUT, GOD HELP THIS PERSON*/
 table.w3-table-all td>h1{
     position: fixed;
     top: 50px;
@@ -46,16 +49,46 @@ table.mi_userdet{
 
 td.notetext{
     padding: 20px;
-    background-color: var(--primaryComp);
+    background-color: var(--complementMed);
 }
 table:not(.mi_userdet){
     margin: 20px;
-    width: 93%;
+    width: 96%;
 }
 table.datadisp td{
     padding: 5px;
 }
 
+TABLE.ctx_table{
+    border:unset;
+    max-width: 400px;
+}
+
+.mbbot table td.ie_process, .mbbot table td.ie_process_desc,
+table.ctx_table td
+{
+    border-bottom: 1px dotted var(--complementHigh);
+}
+
+td.ctx_colhdr{
+    width: 150px;
+}
+
+table.rltable{
+    margin-top: 0;
+}
+table.rltable tr.rlheader td{
+    padding-left: 5px;
+}
+table.rltable tr.rlheader{
+    background-color: var(--primaryComp);
+    height: 30px;
+    vertical-align: middle;
+    font-family: 'robotoCondense';
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+/*Forms and controls*/
 form[name="qrycrit"]>table.datadisp{
     width: 300px;
     margin: auto;
@@ -69,6 +102,11 @@ form[name="qrycrit"]{
     outline: 0 !important;
     box-shadow: 0 0 0.5rem 0.25rem rgb(11 96 60 / 40%) !important;
 }
+
+.ie_process_desc{
+    padding: 2px 10px;
+}
+
 
 /*Overriding Boostrap styles*/
 .btn-primary {

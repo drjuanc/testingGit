@@ -7,6 +7,8 @@
     --primaryHigh: #094f34;
     --complement: #eaeaea;
     --highlighted: #18221e;
+    --complementHigh: #c7501f;
+    --complementMed: #ffc10769;
 }
 
 @font-face {
