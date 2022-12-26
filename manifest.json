@@ -39,20 +39,20 @@
         "content/css/variables.css",
         "content/css/framef1.css",
         "content/css/framef3.css",
-        "content/js/frameF3Loader.js",
         "/assets/fonts/RobotoCondensed-Regular.ttf",
         "/assets/fonts/NotoSans-Regular.ttf",
         "/assets/fonts/Cabin-Regular.ttf",
         "/assets/pics/wsulogo.jpg",
         "/assets/pics/wsulogoinv.jpg",
         "/assets/pics/wsuinv.png",
-        "lib/css/bootstrap.css",
+        "lib/css/bootstrap.min.css",
+        "lib/css/bootstrap.min.css.map",
         "lib/css/bootstrap-table.min.css",
         "lib/js/jquery.min.js",
-        "lib/js/jquery-3.6.3.js",
-        "lib/js/jbootstrap.bundle.min.js",
+        "lib/js/bootstrap.bundle.min.js",
         "lib/js/bootstrap-table.min.js",
-        "lib/js/bootstrap-table-filter-control.min.js"
+        "content/js/frameF3Loader.js",
+        "content/js/tableLoader.js"
         
       ],
       "matches": [ "https://*.ieweb.wsu.ac.za/*" ]
@@ -67,11 +67,17 @@
       ],
       "css": [
         "content/css/content.css",
-        "content/css/login.css"        
+        "content/css/login.css",
+        "lib/css/bootstrap.css",
+        "lib/css/bootstrap-table.min.css"      
       ],
       "js": [
+        "lib/js/jquery.min.js",
         "content/content.js",
-        "content/js/frameF3Loader.js"
+        "content/js/frameF3Loader.js",    
+        "lib/js/bootstrap.bundle.min.js",
+        "lib/js/bootstrap-table.min.js"
+        
 
       ]
     }

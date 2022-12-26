@@ -8,7 +8,9 @@
     --complement: #eaeaea;
     --highlighted: #18221e;
     --complementHigh: #c7501f;
-    --complementMed: #ffc10769;
+    --complementMed: #ffe6ac;
+    --allGrey: #c9c9c9;
+    --boxShadow: rgb(11 96 60 / 40%);
 }
 
 @font-face {

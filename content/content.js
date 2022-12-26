@@ -44,6 +44,8 @@
             //CleanLogin
             if ((arrConfig[7][0] = 'cleanLogin' && arrConfig[7][1]) && (arrConfig[3][1])) docBody.classList.add("cleanLogin");
 
+            //Remove the margin of the main div
+            document.getElementsByClassName('w3-main')[0].removeAttribute('style');
         }
 
         if (currentURl.includes("mi_main_menu")) { //Make sure the user is in the other page
@@ -117,41 +119,21 @@
 
             //Here I create an array of files I need to attach to the frame #3
             var jQueryJS = chrome.runtime.getURL('lib/js/jquery.min.js');
-            //var jQuery3JS = chrome.runtime.getURL('lib/js/jquery-3.6.3.js');
-            var bstCSS = chrome.runtime.getURL('lib/css/bootstrap.css');
+            var bstBundle = chrome.runtime.getURL('lib/js/bootstrap.bundle.min.js');
+            var tableLoader = chrome.runtime.getURL('content/js/tableLoader.js');
+            
+            var bstCSS = chrome.runtime.getURL('lib/css/bootstrap.min.css');
             var bstTableCSS = chrome.runtime.getURL('lib/css/bootstrap-table.min.css');
             var bstTableJS = chrome.runtime.getURL('lib/js/bootstrap-table.min.js');
             var bstFilterJS = chrome.runtime.getURL('lib/js/bootstrap-table-filter-control.min.js');
 
-            var attfiles = [framef3CSS.href, bstCSS, bstTableCSS, bstTableJS, bstFilterJS, jQueryJS];
+            var attfiles = [ framef3CSS.href, bstCSS, bstTableCSS, jQueryJS, bstBundle, bstTableJS ];
             //console.log(jQueryJS);
             sessionStorage.setItem("filesToAttach", attfiles); //Store them in a session var
             
-
-           document.getElementById("F3").setAttribute("onLoad", "frameF3Reloaded();");
-            //document.getElementById("F3").setAttribute("onLoad", "frameF3Reloaded("+files+");");
+           document.getElementById("F3").setAttribute("onLoad", "frameF3Reloaded('"+tableLoader+"');");
 
         }
     });
 
 })();
-
-
-function frameF3Reloaded(){
-
-    var framef3CSS = document.createElement('link');
-
-    framef3CSS.href = chrome.runtime.getURL('content/css/framef3.css');
-    //framef3CSS.href = '/content/css/framef3.css';
-
-    framef3CSS.rel = "stylesheet";
-
-    framef3CSS.type = "text/css";
-
-    //Insert the CSS's into the head of the Iframe document
-    frames['F3'].document.head.appendChild(framef3CSS);
-
-    }
-
-
-

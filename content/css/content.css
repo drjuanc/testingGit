@@ -56,10 +56,14 @@
     width: 100%;
 }
 
+
 .customTheme  #mySidebar {
-    /*width: 370px !important;
-    margin-left: -20px;*/
+    width: 280px !important;
+    /*margin-left: -20px;*/
     height: 100vw;
+}
+body.customTheme .w3-main{
+    margin-left: 280px !important;
 }
 
 .customTheme .w3-container, .w3-panel {

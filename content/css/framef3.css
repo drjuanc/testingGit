@@ -22,6 +22,7 @@ body>h1{
     background-color: var(--primaryColor);
     padding: 10px;
     color: var(--txtPrimaryMatch);
+    font-size: calc(1rem + 1.2vw);
 }
 
 /*Fixing all this tables*/
@@ -51,7 +52,7 @@ td.notetext{
     padding: 20px;
     background-color: var(--complementMed);
 }
-table:not(.mi_userdet){
+table.noticeBox{
     margin: 20px;
     width: 96%;
 }
@@ -59,10 +60,72 @@ table.datadisp td{
     padding: 5px;
 }
 
-TABLE.ctx_table{
+table.ctx_table{
     border:unset;
     max-width: 400px;
 }
+
+/*Links*/
+a, a:active, a:visited{
+    color: var(--primaryColor) !important;
+    text-decoration: none;
+}
+a:hover{
+    color: var(--complementHigh) !important;
+    text-decoration: underline;
+}
+
+/*Tool tip*/
+ /*So many nested tables GOD HELP ME*/
+.popUpLevel0{
+    /*margin: unset;*/
+    width: unset;
+    background-color: var(--primaryColor);
+    width: 100%;
+    border-top: 0 !important;
+    border-collapse: collapse;
+}
+
+.popUpLevel0 td{
+    padding: 0;
+}
+
+.popUpHeader td:first-of-type {
+    background-color: var(--primaryColor) !important;
+    width: 80%;
+}
+
+.popUpHeader td:last-of-type {
+    background-color: var(--complementHigh) !important;
+    color: white !important;
+    border-top: 2px solid var(--complementHigh) !important;
+    text-align: center !important;
+}
+
+/*GOOD LORD the tag FONT is not longer supported in HTML5*/
+.popUpHeader font{
+    color: white !important;
+    font-family: 'robotoCondense';
+    font-size: .8rem;
+    text-transform: uppercase;
+}
+
+.popUpContent a {
+    font-family: 'Cabin';
+    font-size: .9rem;
+}
+.popUpBody{
+    border: 2px solid var(--primaryColor);
+    border-top: 0;
+}
+
+
+#overDiv table td table td {
+    padding: 5px;
+    background-color: var(--bs-gray-100);
+}
+
+
 
 .mbbot table td.ie_process, .mbbot table td.ie_process_desc,
 table.ctx_table td
@@ -74,19 +137,53 @@ td.ctx_colhdr{
     width: 150px;
 }
 
-table.rltable{
+.fixed-table-body{
+    margin-bottom: 10rem;
+}
+
+/*Table with the subjects*/
+#tbSubjects{
     margin-top: 0;
+    max-width: 95%;
+    border-collapse: separate;
+    border: 2px solid var(--bs-gray-200);
+    border-radius: 10px;
+    font-family: 'robotoCondense';
+    color: var(--bs-gray-600);
 }
-table.rltable tr.rlheader td{
+
+#tbSubjects thead th{
     padding-left: 5px;
+    background-color: var(--bs-gray-100);
+    border-bottom: 2px solid var(--bs-gray-200);
 }
-table.rltable tr.rlheader{
-    background-color: var(--primaryComp);
-    height: 30px;
+#tbSubjects thead{
+    height: 50px;
     vertical-align: middle;
     font-family: 'robotoCondense';
     font-size: 1.1rem;
     font-weight: 600;
+}
+#tbSubjects th:first-of-type {
+    border-top-left-radius: 10px !important;
+    /*border-left: 2px solid var(--bs-gray-200);*/
+}
+
+#tbSubjects th:last-of-type {
+    border-top-right-radius: 10px !important;
+    /*border-right: 2px solid var(--bs-gray-200);*/
+}
+
+#tbSubjects tr{
+    border-color: var(--bs-gray-200);
+}
+
+#tbSubjects td:not(:nth-of-type(1)):not(:nth-of-type(2)){
+    text-align: center;
+}
+
+.rowover{
+    background-color: unset !important;
 }
 /*Forms and controls*/
 form[name="qrycrit"]>table.datadisp{
@@ -114,13 +211,24 @@ form[name="qrycrit"]{
     border-color: var(--primaryActive) !important;
     filter: drop-shadow(4px 4px 4px var(--highlighted));
 }
-.btn-primary:hover {
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
     background-color: var(--primaryComp) !important;
     color: var(--primaryHigh) !important;
     font-weight: 600 !important;
     border: 1px solid var(--primaryColor) !important;
+    outline: 0 !important;
+    filter: unset !important;
+    border-color: var(--primaryActive) !important;
+    box-shadow: 0 0 0.5rem 0.25rem var(--boxShadow) !important;
+
 }
 .btn-right{
     float:right;
     margin-right: 100px;
+}
+
+/*Pop up menu on subject clicks*/
+#overDiv{
+    left: 10px !important;
 }
